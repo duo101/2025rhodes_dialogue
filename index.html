@@ -24,6 +24,47 @@
   .grid{display:grid;gap:16px;margin-top:18px}
   @media(min-width:800px){.grid{grid-template-columns:1fr 1fr}}
   .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:10px}
+  :root {
+  --geo: #0b3b8c;
+  --econ: #117a8b;
+  --soc: #7c3aed;
+  --other: #915f2b;
+}
+.card{ position: relative; overflow: hidden; }
+.card-head {
+  height: 88px;
+  border-radius: 12px 12px 0 0;
+  margin: -18px -18px 14px -18px;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px 16px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .2px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+  .card-head::after{
+  content:"";
+  flex:1;
+  align-self: stretch;
+  background:
+    radial-gradient(circle at 20% 30%, #ffffff26 0 35%, transparent 36% 100%),
+    radial-gradient(circle at 80% 20%, #00000010 0 30%, transparent 31% 100%);
+  mix-blend-mode: soft-light;
+}
+.cat-geo{ background: var(--geo); }
+.cat-econ{ background: var(--econ); }
+.cat-soc{ background: var(--soc); }
+.cat-other{ background: var(--other); }
+.card-head > span {
+  background: #ffffff22;
+  border: 1px solid #ffffff40;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 12px;
+}
   .meta{display:grid;grid-template-columns:132px 1fr;gap:6px 14px;font-size:15px}
   .meta .k{color:var(--muted)}
   .buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
@@ -58,17 +99,18 @@
   <div class="grid">
     <!-- Panel 1 -->
     <article class="card" id="panel-1">
+      <div class="card-head cat-soc"><span>Society & Culture</span></div>
       <h3>Panel 1 — Bridging Lives and Lessons: Education, Everyday Experience, and Understanding Between China and the U.S.</h3>
       <div class="meta">
-        <div class="k">Date &amp; Time</div><div class="v mono">Sat, Nov 15 · 9:00–10:30 PM (ET)</div>
-        <div class="k">Guest</div><div class="v">Peter Hessler</div>
-        <div class="k">Discussants</div><div class="v">Zhixin Wan &amp; Ryan Yan</div>
+        <div class="k"> <b>Date &amp; Time</b></div><div class="v mono">Sat, Nov 15 · 9:00–10:30 PM (ET)</div>
+        <div class="k"><b>Guest</b></div><div class="v">Peter Hessler</div>
+        <div class="k"><b>Discussants</b></div><div class="v">Zhixin Wan &amp; Ryan Yan</div>
       </div>
       <details>
         <summary>Show full description & bios</summary>
-        <p><b>Description:</b> Having lived and written in China for more than three decades, acclaimed author and journalist Peter Hessler offers a rare, ground-level perspective on how ordinary lives illuminate broader social and cultural change. This conversation explores his recent experiences in China, reflections on education and social mobility in both countries, and insights from his new book Other Rivers. Through these stories, Peter and the discussants will reflect on how cultural writing and personal narratives can bridge understanding between two societies often seen in opposition, yet deeply connected through shared human experience.</p>
+        <p><b>Description:</b> Having lived and written in China for more than three decades, acclaimed author and journalist Peter Hessler offers a rare, ground-level perspective on how ordinary lives illuminate broader social and cultural change. This conversation explores his recent experiences in China, reflections on education and social mobility in both countries, and insights from his new book <i>Other Rivers</i>. Through these stories, Peter and the discussants will reflect on how cultural writing and personal narratives can bridge understanding between two societies often seen in opposition, yet deeply connected through shared human experience.</p>
         <div class="bio">
-          <h4>Peter Hessler</h4>
+          <h4>Peter Hessler (Chinese: 何伟)</h4>
           <p>American writer of narrative nonfiction and the author of four books about China, including his “China Trilogy”: —<i>River Town</i> (Kiriyama Prize), <i>Oracle Bones</i> (National Book Award finalist), and <i>Country Driving</i>—and <i>Other Rivers: A Chinese Education</i> (2024). Most of his subjects reflected two key social dynamics of this era: the mass migration from the countryside to cities, and the tens of millions of Chinese individuals who had known poverty but were now becoming members of the new middle class. Beginning in 2011, three of Hessler’s books were published in editions for mainland China and have been tanslated into fourteen languages.
 He graduated from Princeton University with an A.B. in English and received a Rhodes Scholarship to study English language and literature at Mansfield College, University of Oxford. He was named a MacArthur Fellow in 2011.</p>
 
@@ -86,17 +128,18 @@ He graduated from Princeton University with an A.B. in English and received a Rh
 
     <!-- Panel 2 (Szonyi) -->
     <article class="card" id="panel-2">
+      <div class="card-head cat-soc"><span>Economics</span></div>
       <h3>Panel 2 — Complexity Beyond Tension: Challenges and Opportunities in China Studies</h3>
       <div class="meta">
-        <div class="k">Date &amp; Time</div><div class="v mono">Sun, Nov 16 · 9:00–10:30 AM (ET)</div>
-        <div class="k">Guest</div><div class="v">Michael A. Szonyi</div>
-        <div class="k">Discussant</div><div class="v">Xiaorui Zhou</div>
+        <div class="k"><b>Date &amp; Time</b></div><div class="v mono">Sun, Nov 16 · 9:00–10:30 AM (ET)</div>
+        <div class="k"><b>Guest</b></div><div class="v">Michael A. Szonyi</div>
+        <div class="k"><b>Discussant</b></div><div class="v">Xiaorui Zhou</div>
       </div>
       <details>
         <summary>Show full description & bios</summary>
         <p><b>Description:</b> As a renowned historian and long-time field researcher, Professor Michael Szonyi brings unique insights into how studying China from the ground up can deepen our understanding of its society and state. This conversation will begin with reflections on his most recent fieldwork in China and the continuing importance of field-based research. It will explore how close engagement with local communities reshapes our understanding of rural China and situates Chinese history within broader debates in the social sciences and humanities. The discussion will also consider the opportunities and challenges of studying China as foreign scholars today, as well as the emerging directions of research, teaching, and public engagement in this evolving field.</p>
         <div class="bio">
-          <h4>Michael A. Szonyi</h4>
+          <h4>Michael A. Szonyi (Chinese: 宋怡明)</h4>
           <p>Michael Szonyi is Professor of Chinese History and former Director of the Fairbank Center for Chinese Studies at Harvard University. He is a social historian of late imperial and modern China. His research focuses on the local history of southeast China, from the Ming dynasty to the twenty-first century, using a combination of traditional textual sources and ethnographic-style fieldwork. His books include  <i>The Art of Being Governed</i> (Princeton, 2017), <i>Cold War Island</i>, <i>Practicing Kinship</i>, and <i>A Companion to Chinese History</i>. Rhodes Scholar (Ontario &amp; Merton, 1990). Szonyi received his Bachelor of Arts from the University of Toronto and his doctorate from Oxford University, where he was a Rhodes Scholar. </p>
 
           <h4>Xiaorui Zhou</h4>
@@ -110,11 +153,12 @@ He graduated from Princeton University with an A.B. in English and received a Rh
 
     <!-- Panel 3 (Barton) -->
     <article class="card" id="panel-3">
+      <div class="card-head cat-soc"><span>Society & Culture</span></div>
       <h3>Panel 3 — Leading Through Complexity: Insights from McKinsey to the Embassy in Beijing</h3>
       <div class="meta">
-        <div class="k">Date &amp; Time</div><div class="v mono">Sun, Nov 16 · 8:00–9:00 PM (ET)</div>
-        <div class="k">Guest</div><div class="v">Dominic Barton</div>
-        <div class="k">Discussant</div><div class="v">Brian Wong &amp; Charlie Wang</div>
+        <div class="k"><b>Date &amp; Time</b></div><div class="v mono">Sun, Nov 16 · 8:00–9:00 PM (ET)</div>
+        <div class="k"><b>Guest</b></div><div class="v">Dominic Barton</div>
+        <div class="k"><b>Discussant</b></div><div class="v">Brian Wong &amp; Charlie Wang</div>
       </div>
       <details>
         <summary>Show full description & bios</summary>
@@ -137,11 +181,12 @@ He graduated from Princeton University with an A.B. in English and received a Rh
 
     <!-- Panel 4 (Sullivan) -->
     <article class="card" id="panel-4">
+      <div class="card-head cat-soc"><span>Geopolitics</span></div>
       <h3>Panel 4 — Strategic Competition or Managed Coexistence: The Future of U.S.–China Relations under Trump 2.0</h3>
       <div class="meta">
-        <div class="k">Date &amp; Time</div><div class="v mono">Sat, Nov 22 · 9:00–10:00 AM (ET)</div>
-        <div class="k">Guest</div><div class="v">Jake Sullivan</div>
-        <div class="k">Discussants</div><div class="v">Duo Yi &amp; Charlie Wang</div>
+        <div class="k"><b>Date &amp; Time</b></div><div class="v mono">Sat, Nov 22 · 9:00–10:00 AM (ET)</div>
+        <div class="k"><b>Guest</b></div><div class="v">Jake Sullivan</div>
+        <div class="k"><b>Discussants</b></div><div class="v">Duo Yi &amp; Charlie Wang</div>
       </div>
       <details>
         <summary>Show full description & bios</summary>
@@ -167,7 +212,7 @@ He holds a B.A. in political science and international studies from Yale College
   </div>
 
   <p class="small" style="margin-top:18px">
-    Times are listed in U.S. Eastern Time (ET). Please confirm your local time when registering.
+    <b>Times are listed in U.S. Eastern Time (ET). Please confirm your local time when registering.</b>
   </p>
 </main>
 
