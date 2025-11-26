@@ -7,10 +7,10 @@
   --stroke: #e2e8f0;
   --radius: 12px;
   
-  /* Deep, rich gradients based on your sample */
-  --grad-soc-1: #206A8C; --grad-soc-2: #4da0c4; /* Blues */
-  --grad-econ-1: #386641; --grad-econ-2: #6a994e; /* Greens */
-  --grad-geo-1: #6d597a; --grad-geo-2: #9d8189; /* Purples */
+  /* Gradients */
+  --grad-soc-1: #206A8C; --grad-soc-2: #4da0c4;
+  --grad-econ-1: #386641; --grad-econ-2: #6a994e;
+  --grad-geo-1: #6d597a; --grad-geo-2: #9d8189;
 }
 
 html, body {
@@ -18,10 +18,10 @@ html, body {
   background: var(--bg);
   color: var(--ink);
   font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  line-height: 1.5; /* Tightened line height for better typesetting */
 }
 
-.wrap { max-width: 1000px; margin-inline: auto; padding: 20px; }
+.wrap { max-width: 900px; margin-inline: auto; padding: 20px; }
 
 /* Header */
 .hero {
@@ -30,14 +30,17 @@ html, body {
   border-radius: var(--radius);
   padding: 30px;
   margin-bottom: 30px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 .hero img { display: block; width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; }
 h2.section-title { font-size: 1.8rem; color: var(--rhodes-blue); margin-top: 0; }
 
-/* --- CARD GRID --- */
-.grid { display: grid; gap: 24px; margin-top: 24px; }
-@media(min-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } }
+/* --- CARD LIST LAYOUT --- */
+.grid { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 20px; 
+  margin-top: 24px; 
+}
 
 .card {
   background: var(--card);
@@ -45,26 +48,26 @@ h2.section-title { font-size: 1.8rem; color: var(--rhodes-blue); margin-top: 0; 
   border-radius: var(--radius);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Mobile: Stacked */
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  height: 100%; /* Equal height cards */
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px rgba(0,0,0,0.1);
 }
 
-/* --- PATTERNS & GEOMETRY (The Visual Header) --- */
+/* --- PATTERNS & GEOMETRY --- */
 .card-visual {
-  height: 160px;
+  height: 100px; /* Mobile: Short strip */
   position: relative;
   overflow: hidden;
+  flex-shrink: 0; /* Prevent shrinking */
   display: flex;
-  align-items: flex-end;
-  padding: 20px;
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
 }
 
 /* Base Gradients */
@@ -72,84 +75,69 @@ h2.section-title { font-size: 1.8rem; color: var(--rhodes-blue); margin-top: 0; 
 .viz-econ { background: linear-gradient(135deg, var(--grad-econ-1), var(--grad-econ-2)); }
 .viz-geo { background: linear-gradient(135deg, var(--grad-geo-1), var(--grad-geo-2)); }
 
-/* Geometric Overlays (The Shapes) */
-.card-visual::before, .card-visual::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
+/* Geometric Overlays */
+.card-visual::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;
 }
+/* Diagonals */
+.viz-soc::before { background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%); }
+/* Triangles */
+.viz-econ::before { background: linear-gradient(to top right, transparent 50%, rgba(255,255,255,0.15) 50%); }
+/* Shards */
+.viz-geo::before { background: linear-gradient(75deg, transparent 20%, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 40%, transparent 40%); }
 
-/* Style 1: Diagonals (Society) */
-.viz-soc::before {
-  background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%);
-}
-.viz-soc::after {
-  background: linear-gradient(120deg, transparent 70%, rgba(0,0,0,0.1) 70%);
-}
-
-/* Style 2: Triangles (Economics) */
-.viz-econ::before {
-  background: linear-gradient(to top right, transparent 50%, rgba(255,255,255,0.15) 50%);
-}
-.viz-econ::after {
-  background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 40%);
-}
-
-/* Style 3: Shards (Geopolitics) */
-.viz-geo::before {
-  background: linear-gradient(75deg, transparent 20%, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 40%, transparent 40%);
-}
-.viz-geo::after {
-  background: linear-gradient(280deg, transparent 60%, rgba(0,0,0,0.15) 60%);
-}
-
-/* Category Label inside the visual header */
 .cat-label {
-  position: relative;
-  z-index: 2;
-  color: rgba(255,255,255,0.9);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+  position: relative; z-index: 2; color: white;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;
   text-transform: uppercase;
   border: 1px solid rgba(255,255,255,0.4);
-  padding: 6px 12px;
-  border-radius: 50px;
-  background: rgba(0,0,0,0.1);
+  padding: 4px 10px; border-radius: 50px;
+  background: rgba(0,0,0,0.15);
   backdrop-filter: blur(4px);
 }
 
 /* --- CARD CONTENT --- */
-.card-content { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.card-content { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
 
 .card-title {
-  margin: 0 0 12px 0;
-  font-size: 1.25rem;
-  line-height: 1.4;
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  line-height: 1.35; /* Better typesetting for long titles */
   color: var(--rhodes-blue);
   font-weight: 700;
 }
 
-.guest-info { margin-bottom: 16px; }
-.guest-name { display: block; font-weight: 700; font-size: 1rem; color: #111; margin-bottom: 4px; }
-.guest-desc { display: block; font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+.guest-info { margin-bottom: 12px; }
+.guest-name { font-weight: 700; color: #111; margin-right: 6px; }
+.guest-desc { color: var(--muted); font-size: 0.95rem; }
 
-.discussant { font-size: 0.85rem; color: #666; margin-top: auto; padding-top: 16px; border-top: 1px dashed var(--stroke); }
-
-.btn-arrow {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 16px;
-  font-weight: 600;
-  color: var(--rhodes-blue);
-  font-size: 0.95rem;
+.meta-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--stroke);
+  font-size: 0.85rem; color: #666;
 }
-.btn-arrow span { transition: transform 0.2s; margin-left: 6px; }
-.card:hover .btn-arrow span { transform: translateX(4px); }
+
+.btn-arrow { font-weight: 600; color: var(--rhodes-blue); white-space: nowrap; margin-left: 10px;}
+
+/* --- DESKTOP LAYOUT (The Fix) --- */
+@media(min-width: 700px) {
+  .card {
+    flex-direction: row; /* Side-by-side layout */
+    align-items: stretch;
+    min-height: 160px; /* Reduced height */
+  }
+  .card-visual {
+    width: 220px; /* Fixed width sidebar */
+    height: auto; /* Full height */
+  }
+  .card-content {
+    flex: 1; /* Take remaining width */
+    padding: 24px;
+  }
+}
 
 /* --- PAGE SPECIFIC --- */
 .article-header { border-bottom: 1px solid var(--stroke); padding-bottom: 20px; margin-bottom: 30px; }
-.article-body { max-width: 720px; margin: 0 auto; font-size: 1.1rem; }
+.article-body { max-width: 720px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7; }
 .nav-back { display: inline-block; margin-bottom: 20px; font-weight: 600; }
 footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 0.9rem; padding-bottom: 40px;}
