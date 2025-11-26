@@ -1,55 +1,43 @@
 :root {
   --rhodes-blue: #0a2f76;
   --ink: #1f2937;
-  --muted: #6b7280;
+  --muted: #4b5563;
   --card: #ffffff;
-  --bg: #f5f7fb;
-  --accent: #1d4ed8;
-  --accent-ink: #ffffff;
-  --stroke: #e5e7eb;
-  --radius: 14px;
-  --geo: #A07EC2;
-  --econ: #488A4E;
-  --soc: #206A8C;
+  --bg: #f8fafc;
+  --stroke: #e2e8f0;
+  --radius: 12px;
+  
+  /* Deep, rich gradients based on your sample */
+  --grad-soc-1: #206A8C; --grad-soc-2: #4da0c4; /* Blues */
+  --grad-econ-1: #386641; --grad-econ-2: #6a994e; /* Greens */
+  --grad-geo-1: #6d597a; --grad-geo-2: #9d8189; /* Purples */
 }
 
 html, body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   line-height: 1.6;
 }
 
-.wrap {
-  max-width: 980px;
-  margin-inline: auto;
-  padding: 20px;
-}
+.wrap { max-width: 1000px; margin-inline: auto; padding: 20px; }
 
-/* Header & Hero */
-header { background: linear-gradient(180deg, #eef2fb, transparent); }
+/* Header */
 .hero {
-  background: var(--card);
+  background: white;
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
-  overflow: hidden;
-  margin-bottom: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
-.hero img { display: block; width: 100%; height: auto; }
-.pad { padding: 22px 22px 24px; }
+.hero img { display: block; width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; }
+h2.section-title { font-size: 1.8rem; color: var(--rhodes-blue); margin-top: 0; }
 
-/* Typography */
-h1 { font-size: clamp(26px, 4vw, 40px); color: var(--rhodes-blue); margin: 0 0 6px; }
-h2 { font-size: clamp(20px, 3vw, 28px); color: var(--rhodes-blue); margin: 0 0 15px; }
-h3 { margin: 24px 0 10px; font-size: 1.25rem; color: #111; }
-p { margin: 0 0 16px; color: #374151; }
-a { color: var(--rhodes-blue); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* Grid & Cards */
-.grid { display: grid; gap: 24px; margin-top: 18px; }
-@media(min-width: 700px) { .grid { grid-template-columns: 1fr 1fr; } }
+/* --- CARD GRID --- */
+.grid { display: grid; gap: 24px; margin-top: 24px; }
+@media(min-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } }
 
 .card {
   background: var(--card);
@@ -58,64 +46,110 @@ a:hover { text-decoration: underline; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
-  text-decoration: none !important; /* For whole card link */
-  color: inherit;
-}
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
-}
-
-/* Panel Thumbnails */
-.panel-thumb {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-bottom: 1px solid var(--stroke);
-}
-
-.card-content { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-
-/* Category Tags */
-.tag {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 99px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: white;
-  align-self: flex-start;
-  margin-bottom: 8px;
-}
-.cat-geo { background: var(--geo); }
-.cat-econ { background: var(--econ); }
-.cat-soc { background: var(--soc); }
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 8px;
-  background: var(--rhodes-blue);
-  color: white;
-  font-weight: 600;
-  font-size: 14px;
-  margin-top: auto;
-  align-self: flex-start;
   text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%; /* Equal height cards */
 }
-.btn:hover { background: var(--accent); text-decoration: none; }
 
-/* Article Page Specifics */
-.nav-back { margin-bottom: 20px; display: inline-block; font-weight: 600; }
-.article-header { margin-bottom: 30px; border-bottom: 1px solid var(--stroke); padding-bottom: 20px; }
-.article-meta { color: var(--muted); font-size: 0.95rem; margin-top: 5px; }
-.article-body { max-width: 720px; margin: 0 auto; font-size: 1.1rem; line-height: 1.75; }
-.article-body h3 { color: var(--rhodes-blue); font-size: 1.5rem; margin-top: 40px; }
-.article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 20px; }
-.article-body li { margin-bottom: 8px; }
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+}
 
-/* Footer */
-footer { color: var(--muted); font-size: 14px; margin-top: 40px; text-align: center; padding-bottom: 40px; }
+/* --- PATTERNS & GEOMETRY (The Visual Header) --- */
+.card-visual {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+/* Base Gradients */
+.viz-soc { background: linear-gradient(135deg, var(--grad-soc-1), var(--grad-soc-2)); }
+.viz-econ { background: linear-gradient(135deg, var(--grad-econ-1), var(--grad-econ-2)); }
+.viz-geo { background: linear-gradient(135deg, var(--grad-geo-1), var(--grad-geo-2)); }
+
+/* Geometric Overlays (The Shapes) */
+.card-visual::before, .card-visual::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+}
+
+/* Style 1: Diagonals (Society) */
+.viz-soc::before {
+  background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%);
+}
+.viz-soc::after {
+  background: linear-gradient(120deg, transparent 70%, rgba(0,0,0,0.1) 70%);
+}
+
+/* Style 2: Triangles (Economics) */
+.viz-econ::before {
+  background: linear-gradient(to top right, transparent 50%, rgba(255,255,255,0.15) 50%);
+}
+.viz-econ::after {
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 40%);
+}
+
+/* Style 3: Shards (Geopolitics) */
+.viz-geo::before {
+  background: linear-gradient(75deg, transparent 20%, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 40%, transparent 40%);
+}
+.viz-geo::after {
+  background: linear-gradient(280deg, transparent 60%, rgba(0,0,0,0.15) 60%);
+}
+
+/* Category Label inside the visual header */
+.cat-label {
+  position: relative;
+  z-index: 2;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 6px 12px;
+  border-radius: 50px;
+  background: rgba(0,0,0,0.1);
+  backdrop-filter: blur(4px);
+}
+
+/* --- CARD CONTENT --- */
+.card-content { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+
+.card-title {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--rhodes-blue);
+  font-weight: 700;
+}
+
+.guest-info { margin-bottom: 16px; }
+.guest-name { display: block; font-weight: 700; font-size: 1rem; color: #111; margin-bottom: 4px; }
+.guest-desc { display: block; font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+
+.discussant { font-size: 0.85rem; color: #666; margin-top: auto; padding-top: 16px; border-top: 1px dashed var(--stroke); }
+
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 16px;
+  font-weight: 600;
+  color: var(--rhodes-blue);
+  font-size: 0.95rem;
+}
+.btn-arrow span { transition: transform 0.2s; margin-left: 6px; }
+.card:hover .btn-arrow span { transform: translateX(4px); }
+
+/* --- PAGE SPECIFIC --- */
+.article-header { border-bottom: 1px solid var(--stroke); padding-bottom: 20px; margin-bottom: 30px; }
+.article-body { max-width: 720px; margin: 0 auto; font-size: 1.1rem; }
+.nav-back { display: inline-block; margin-bottom: 20px; font-weight: 600; }
+footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 0.9rem; padding-bottom: 40px;}
