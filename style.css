@@ -112,9 +112,16 @@ h2.section-title { font-size: 1.8rem; color: var(--rhodes-blue); margin-top: 0; 
 .guest-desc { color: var(--muted); font-size: 0.95rem; }
 
 .meta-row {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--stroke);
-  font-size: 0.85rem; color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--stroke);
+  
+  /* CHANGE THIS: Increased size and made color darker */
+  font-size: 1rem; 
+  color: #333; 
 }
 
 .btn-arrow { font-weight: 600; color: var(--rhodes-blue); white-space: nowrap; margin-left: 10px;}
