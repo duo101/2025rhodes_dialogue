@@ -384,3 +384,22 @@ footer { margin-top: 60px; padding-bottom: 40px; text-align: center; color: var(
     font-size: 1.3rem; /* Slightly smaller titles */
   }
 }
+
+/* --- MOVE LABEL TO TOP LEFT (To show faces) --- */
+.cat-label {
+  position: absolute; /* Detach from center */
+  top: 14px;          /* Distance from top edge */
+  left: 14px;         /* Distance from left edge */
+  
+  /* Optional: Make the text slightly smaller for a cleaner corner look */
+  font-size: 0.75rem; 
+  padding: 6px 12px;
+  
+  /* Ensure it stays on top of the image */
+  z-index: 10;
+}
+
+/* Optional: Make the blue tint lighter so faces are brighter */
+.card-visual::after {
+  background: linear-gradient(to bottom, rgba(10, 47, 118, 0.4) 0%, rgba(10, 47, 118, 0.1) 100%);
+}
