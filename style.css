@@ -185,3 +185,29 @@ footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 0
   margin-bottom: 4px;
   font-size: 1.05rem;
 }
+
+/* --- FEATURED BOOK STYLE (Centered with Shadow) --- */
+.book-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px auto; /* Centers the whole block */
+  text-align: center;
+}
+
+.book-feature h4 {
+  font-family: "Georgia", "Times New Roman", serif; /* Elegant serif font */
+  color: #6b7280;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Spaced out letters */
+  margin: 0 0 16px 0;
+  font-weight: 500;
+}
+
+.book-feature img {
+  width: 200px; /* Adjust size as needed */
+  height: auto;
+  border: 8px solid white; /* The white frame */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Soft shadow */
+}
