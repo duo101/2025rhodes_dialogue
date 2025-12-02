@@ -249,3 +249,36 @@ h2.section-title {
 .nav-back:hover { color: var(--rhodes-blue); }
 
 footer { margin-top: 60px; padding-bottom: 40px; text-align: center; color: var(--muted); }
+
+/* --- HEADSHOT IMAGES IN CARDS --- */
+.card-visual {
+  position: relative;
+  /* Remove the old gradients if you want, or just let the image cover them */
+}
+
+/* The Headshot Image */
+.card-img {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  object-fit: cover; /* This crops the image perfectly to fit the box */
+  z-index: 1;
+}
+
+/* A dark overlay so the white text label pops out */
+.card-visual::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(10, 47, 118, 0.4); /* Blue-ish dark tint */
+  z-index: 2;
+}
+
+/* Ensure the label sits on TOP of the image */
+.cat-label {
+  z-index: 3;
+  /* Optional: Add a slight shadow to text for better reading */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+}
