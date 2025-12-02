@@ -285,3 +285,46 @@ footer { margin-top: 60px; padding-bottom: 40px; text-align: center; color: var(
   /* Optional: Add a slight shadow to text for better reading */
   text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
 }
+
+/* --- MOBILE OPTIMIZATIONS --- */
+@media (max-width: 768px) {
+  
+  /* 1. Fix the "Squished" Text in Event Overview */
+  .hero-content {
+    padding: 30px 20px !important; /* Reduce padding from 60px to 20px */
+  }
+  
+  .hero p {
+    font-size: 1rem; /* Slightly smaller text for readability */
+    text-align: left; /* Keep text readable */
+  }
+
+  h2.section-title {
+    font-size: 1.8rem; /* Smaller headline so it doesn't wrap weirdly */
+  }
+
+  /* 2. Fix the Panel Images (Headshots) */
+  .card {
+    flex-direction: column; /* Stack Image on top of Text */
+    min-height: auto; /* Let the height grow naturally */
+  }
+
+  .card-visual {
+    width: 100%;       /* Make image go full width */
+    height: 250px;     /* Make it TALLER so you can see the face */
+  }
+
+  .card-img {
+    /* Ensure the face is centered in the new taller box */
+    object-position: center top; 
+  }
+
+  /* 3. Fix the Text inside the cards */
+  .card-content {
+    padding: 24px 20px; /* Give text some breathing room */
+  }
+  
+  .card-title {
+    font-size: 1.3rem; /* Slightly smaller titles */
+  }
+}
