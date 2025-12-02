@@ -148,3 +148,40 @@ h2.section-title { font-size: 1.8rem; color: var(--rhodes-blue); margin-top: 0; 
 .article-body { max-width: 720px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7; }
 .nav-back { display: inline-block; margin-bottom: 20px; font-weight: 600; }
 footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 0.9rem; padding-bottom: 40px;}
+
+/* --- BOOK LIST STYLES --- */
+.book-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.book-item {
+  display: flex;
+  gap: 20px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 16px;
+  border-radius: 12px;
+  align-items: flex-start;
+}
+
+.book-cover {
+  width: 80px;  /* Fixed width for all covers */
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  flex-shrink: 0; /* Prevents image from getting squished */
+}
+
+.book-info {
+  flex: 1;
+}
+
+.book-info strong {
+  display: block;
+  color: #0a2f76; /* Rhodes Blue */
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+}
